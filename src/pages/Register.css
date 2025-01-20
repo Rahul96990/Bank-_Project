@@ -1,0 +1,60 @@
+.register-container{
+     width: 80%;
+     border: 1px solid black;
+     margin: 20px auto;
+     border-radius: 10px;
+}
+
+.header{
+     padding: 15px;
+     border-top-left-radius: 10px;
+     border-top-right-radius: 10px;
+     color: white;
+     background-color: rgb(95, 150, 225);
+}
+
+
+.flex{
+     display: grid;
+     grid-template-columns: 1fr 1fr 1fr;
+     grid-template-rows: 90px;
+}
+
+.box p{
+     margin: 0;
+}
+
+.data-field{
+     margin: 25px;
+}
+
+input,select{
+     width: 96%;
+     padding: 10px;
+     cursor: pointer;
+     margin-top: 10px;
+     font-size: 16px;
+     border-radius: 5px;
+     border: 1px solid black;
+}
+
+.register-container button.register-btn{
+     width: 95%;
+     padding: 10px;
+     cursor: pointer;
+     margin-left:2.5%;
+     color: white;
+     border-radius: 10px;
+     font-size: 16px;
+     border: none;
+     background-color: rgb(60, 60, 234);
+}
+
+.register-container button.register-btn:hover{
+     background-color: rgb(16, 16, 222);
+}
+
+p.suggesstion{
+     text-align: center;
+}
+

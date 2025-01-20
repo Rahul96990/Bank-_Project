@@ -1,0 +1,40 @@
+.nav-container .container {
+     background-color: rgb(60, 60, 234);
+     display: flex;
+     align-items: center;
+     height: 80px;
+     justify-content: space-around;
+}
+
+.left h1{
+     font-size: 25px;
+     font-weight: 500;
+     color: white;
+}
+
+ul{
+     display: flex;
+     gap: 2rem;
+     color: white;
+     font-size: 18px;
+}
+
+ul > li a{
+     color: white;
+}
+
+.right button{
+     padding: 10px 20px;
+     cursor: pointer;
+     color: blue;
+     max-width: fit-content;
+     background-color: white;
+     border-radius: 10px;
+     border: 0;
+     margin-left: 10px;
+}
+
+.right button a{
+     color: blue;
+     font-size: 16px;
+}

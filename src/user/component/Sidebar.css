@@ -1,0 +1,73 @@
+.sidebar-container{
+     border: 1px solid blue;
+     width: 100%;
+     background-color: blue;
+     height: 91.2vh;
+}
+
+.sidebar-container .info-box{
+     padding: 10px 15px;
+     display: block;
+}
+
+.sidebar-container .info-box .photo{
+     border-radius: 50%;
+     /* height: 70px; */
+     /* border:1px solid blue ; */
+}
+
+.sidebar-container .info-box .photo .user-icon{
+     font-size: 80px;
+     margin: 0 auto;
+     border-radius: 50%;
+     border: 3px solid blue;
+     padding: 10px ;
+}
+
+.sidebar-container li{
+     width: 90%;
+     border-top-right-radius: 20px;
+     border-bottom-right-radius: 20px;
+     padding: 15px;
+     margin: 15px 10px;
+     border: none;
+     text-transform: capitalize;
+     color: white;
+}
+
+.sidebar-container li a{
+     color: white;
+     font-size: 18px;
+}
+
+
+.sidebar-container li:hover,
+.sidebar-container .active-link{
+     width: 90%;
+     border-top-right-radius: 20px;
+     border-bottom-right-radius: 20px;
+     padding: 15px;
+     background-color: white;
+     margin: 15px 10px;
+     border: none;
+     transition: 0.2s ease-out;
+     cursor: pointer;
+}
+
+.sidebar-container .active-link a,
+.sidebar-container li:hover
+{
+     color: blue;
+}
+
+
+
+.sidebar-container h1{
+     font-size: 18px;
+     margin: 4px 0;
+     font-weight: 500;
+}
+
+.sidebar-container p{
+     margin: 5px 0;
+}

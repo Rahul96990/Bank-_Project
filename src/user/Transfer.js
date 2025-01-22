@@ -43,6 +43,7 @@ const Transfer = () => {
       const handleTransfer = async (e) => {
             e.preventDefault()
             const fData = new FormData();
+            fData.append('user_id', user_id);
             fData.append('sender_acc_num', transfer.sender_acc_num);
             fData.append('recevier_acc_num', transfer.recevier_acc_num );
             fData.append('pin_num', transfer.pin_num);
@@ -94,7 +95,7 @@ const Transfer = () => {
                                                             <span className='text-lg'>Enter Receiver Account : </span>
                                                       </td>
                                                       <td className='pl-8'>
-                                                            <input name="recevier_acc_num" value={transfer.recevier_acc_num} onChange={handleChange} type='text' className="w-[90%] p-4 rounded-xl cursor-pointer border-2 border-zinc-400 mt-1" />
+                                                            <input required name="recevier_acc_num" value={transfer.recevier_acc_num} onChange={handleChange} type='text' className="w-[90%] p-4 rounded-xl cursor-pointer border-2 border-zinc-400 mt-1" />
                                                       </td>
                                                 </tr>
                                                 <tr className='h-[90px]'>
@@ -102,7 +103,7 @@ const Transfer = () => {
                                                             <span className='text-lg'>Enter Sender Account PIN : </span>
                                                       </td>
                                                       <td className='pl-8 '>
-                                                            <input name="pin_num" value={transfer.pin_num} onChange={handleChange} type='number' className="w-[90%] p-4 rounded-xl cursor-pointer border-2 border-zinc-400 mt-1" />
+                                                            <input name="pin_num" required value={transfer.pin_num} onChange={handleChange} type='number' className="w-[90%] p-4 rounded-xl cursor-pointer border-2 border-zinc-400 mt-1" />
                                                       </td>
                                                 </tr>
                                                 <tr className='h-[90px]'>
@@ -110,7 +111,7 @@ const Transfer = () => {
                                                             <span className='text-lg'>Transfer Amount : </span>
                                                       </td>
                                                       <td className='pl-8 '>
-                                                            <input name="amount" min="1" type='number' value={transfer.amount} onChange={handleChange} className="w-[90%] p-4 rounded-xl cursor-pointer border-2 border-zinc-400 mt-1" />
+                                                            <input name="amount" required min="1" type='number' value={transfer.amount} onChange={handleChange} className="w-[90%] p-4 rounded-xl cursor-pointer border-2 border-zinc-400 mt-1" />
                                                       </td>
                                                 </tr>
                                                 <tr className='h-[90px]'>

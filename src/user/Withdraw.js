@@ -7,6 +7,11 @@ import axios from 'axios';
 const Transfer = () => {
       const { user_id } = useParams()
       const [account,SetAccount] = useState([])
+      const [withdraw,SetWithdraw] = useState({
+            'acc_num' : '',
+            'pin_num' : '',
+            'amount' : '',
+      })
 
       useEffect(() => {
             const fetchData = async () => {
@@ -27,6 +32,18 @@ const Transfer = () => {
             fetchData();
           }, [user_id]);
 
+          const handleChange = (e) =>{
+            SetWithdraw({
+                  ...withdraw,
+                  [e.target.name] : e.target.value
+            })
+          }
+
+          const withdrawAmount = () =>{
+            console.log(withdraw)
+            console.log("Hello ")
+          }
+
       return (
             <div className='dashboard-container'>
                   <Sidebar user_id={user_id} />
@@ -35,6 +52,7 @@ const Transfer = () => {
                               <h1 className='text-3xl capitalize'>Withdraw Money</h1>
                         </div>
                         <div className='p-3 m-5 border-2 rounded-xl w-[90%] border-zinc-300'>
+                        <form onSubmit={withdrawAmount}>
                         <table className='w-[80%]'>
                               <tbody>
                                     <tr className='h-[90px]'>
@@ -42,7 +60,7 @@ const Transfer = () => {
                                                 <span className='text-lg'>Select Sender Account : </span>
                                           </td>
                                           <td className='pl-8'>
-                                                <select name="sender_account" className="w-[90%] p-4 rounded-xl cursor-pointer border-2 border-zinc-400 mt-1" required>
+                                                <select name="acc_num" className="w-[90%] p-4 rounded-xl cursor-pointer border-2 border-zinc-400 mt-1" value={withdraw.acc_num} onChange={handleChange} required>
                                                       <option value="" hidden selected>Select Sender Account</option>
                                                       {account.map((acc,index)=>(
                                                             <option>{acc.account_number}</option>
@@ -55,7 +73,7 @@ const Transfer = () => {
                                                 <span className='text-lg'>Enter Account PIN : </span>
                                           </td>
                                           <td className='pl-8 '>
-                                                <input name="pin_number" min="1" type='number' className="w-[90%] p-4 rounded-xl cursor-pointer border-2 border-zinc-400 mt-1" />
+                                                <input required name="pin_num" min="1" type='number' value={withdraw.pin_num} onChange={handleChange}  className="w-[90%] p-4 rounded-xl cursor-pointer border-2 border-zinc-400 mt-1" />
                                           </td>
                                     </tr>
                                     <tr className='h-[90px]'>
@@ -63,7 +81,7 @@ const Transfer = () => {
                                                 <span className='text-lg'>Withdraw Amount : </span>
                                           </td>
                                           <td className='pl-8 '>
-                                                <input name="ammount" min="1" type='number' className="w-[90%] p-4 rounded-xl cursor-pointer border-2 border-zinc-400 mt-1" />
+                                                <input required name="ammount" min="1" type='number'  value={withdraw.amount} onChange={handleChange}  className="w-[90%] p-4 rounded-xl cursor-pointer border-2 border-zinc-400 mt-1" />
                                           </td>
                                     </tr>
                                     <tr className='h-[90px]'>
@@ -73,6 +91,7 @@ const Transfer = () => {
                                     </tr>
                               </tbody>
                         </table>
+                        </form>
                         </div>
                   </div>
             </div>

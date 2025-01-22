@@ -41,12 +41,12 @@ const Account = () => {
               <p>Account Number: {item.account_number}</p>
               <p className='capitalize'>Account Type: {item.account_type}</p>
               <p>Balance Amount: {item.balance_amount}</p>
-              <p>Annual Income: {item.annual_income}</p>
               <p>Account Creation Date: {item.account_creation_date}</p>
               <p>PAN Card: {item.pan_card}</p>
               <p>Name: {item.name}</p>
               <p>Branch Location: {item.branch_location}</p>
               <p>PIN: {item.pin}</p>
+              <p>Annual Income: {item.annual_income}</p>
               <p>Phone Number: {item.phone_number}</p>
             </div>
           ))}

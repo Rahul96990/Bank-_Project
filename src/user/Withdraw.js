@@ -3,6 +3,7 @@ import Sidebar from './component/Sidebar'
 import './Dashboard.css'
 import { useParams } from 'react-router-dom'
 import axios from 'axios';
+import { toast, ToastContainer } from 'react-toastify';
 
 const Transfer = () => {
       const { user_id } = useParams()
@@ -11,6 +12,7 @@ const Transfer = () => {
             'acc_num' : '',
             'pin_num' : '',
             'amount' : '',
+            'user_id' : user_id,
       })
 
       useEffect(() => {
@@ -39,9 +41,26 @@ const Transfer = () => {
             })
           }
 
-          const withdrawAmount = () =>{
-            console.log(withdraw)
-            console.log("Hello ")
+          const withdrawAmount = async (e) =>{
+            e.preventDefault()
+            
+            const fData = new FormData()
+            fData.append('acc_num',withdraw.acc_num)
+            fData.append('amount',withdraw.amount)
+            fData.append('pin_num',withdraw.pin_num)
+            fData.append('user_id',withdraw.user_id)
+
+            try {
+                  const response = await axios.post("http://localhost/backend/withdraw.php",fData)
+                  console.log()     
+                  if (response.data.message) {
+                        toast.success(response.data.message)
+                  } else if(response.data.error){
+                        toast.error(response.data.error)
+                  } 
+            } catch (error) {
+                  
+            }
           }
 
       return (
@@ -52,7 +71,7 @@ const Transfer = () => {
                               <h1 className='text-3xl capitalize'>Withdraw Money</h1>
                         </div>
                         <div className='p-3 m-5 border-2 rounded-xl w-[90%] border-zinc-300'>
-                        <form onSubmit={withdrawAmount}>
+                        <form method='post' onSubmit={withdrawAmount}>
                         <table className='w-[80%]'>
                               <tbody>
                                     <tr className='h-[90px]'>
@@ -81,18 +100,19 @@ const Transfer = () => {
                                                 <span className='text-lg'>Withdraw Amount : </span>
                                           </td>
                                           <td className='pl-8 '>
-                                                <input required name="ammount" min="1" type='number'  value={withdraw.amount} onChange={handleChange}  className="w-[90%] p-4 rounded-xl cursor-pointer border-2 border-zinc-400 mt-1" />
+                                                <input required name="amount" min="1" type='number'  value={withdraw.amount} onChange={handleChange}  className="w-[90%] p-4 rounded-xl cursor-pointer border-2 border-zinc-400 mt-1" />
                                           </td>
                                     </tr>
                                     <tr className='h-[90px]'>
                                           <td colSpan={2} className='p-5 w-[100%] '>
-                                          <button className='p-3 text-white bg-indigo-600 border rounded-xl hover:bg-indigo-500 hover:border hover:border-blue-600 w-[8rem]'>Transfer</button>
+                                          <button className='p-3 text-white bg-indigo-600 border rounded-xl hover:bg-indigo-500 hover:border hover:border-blue-600 w-[8rem]'>Withdraw</button>
                                           </td>
                                     </tr>
                               </tbody>
                         </table>
                         </form>
                         </div>
+                        <ToastContainer/>
                   </div>
             </div>
       )

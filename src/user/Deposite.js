@@ -7,6 +7,12 @@ import axios from 'axios';
 const Transfer = () => {
       const { user_id } = useParams()
       const [account,SetAccount] = useState([])
+      const [deposite,SetDeposite] = useState({
+            'acc_num' : '',
+            'amount' : '',
+            'pin_num' : '',
+            'user_id' : user_id
+      });
 
       useEffect(() => {
             const fetchData = async () => {
@@ -23,9 +29,17 @@ const Transfer = () => {
                 console.log(false);
               }
             };
-        
             fetchData();
           }, [user_id]);
+
+      const changeHandle = (e) =>{
+            SetDeposite({
+                  ...deposite ,
+                  [e.target.name] : [e.target.value] 
+            })
+      }
+
+      
 
       return (
             <div className='dashboard-container'>
@@ -42,7 +56,7 @@ const Transfer = () => {
                                                 <span className='text-lg'>Select Account Number: </span>
                                           </td>
                                           <td className='pl-8'>
-                                                <select name="sender_account" className="w-[90%] p-4 rounded-xl cursor-pointer border-2 border-zinc-400 mt-1" required>
+                                                <select name="acc_num" className="w-[90%] p-4 rounded-xl cursor-pointer border-2 border-zinc-400 mt-1" value={deposite.acc_num} onChange={changeHandle} required>
                                                       <option value="" hidden selected>Select Sender Account</option>
                                                       {account.map((acc,index)=>(
                                                             <option>{acc.account_number}</option>
@@ -55,7 +69,7 @@ const Transfer = () => {
                                                 <span className='text-lg'>Enter Account PIN : </span>
                                           </td>
                                           <td className='pl-8 '>
-                                                <input name="pin_number" min="1" type='number' className="w-[90%] p-4 rounded-xl cursor-pointer border-2 border-zinc-400 mt-1" />
+                                                <input name="pin_num" value={deposite.pin_num} onChange={changeHandle} min="1" type='number' className="w-[90%] p-4 rounded-xl cursor-pointer border-2 border-zinc-400 mt-1" />
                                           </td>
                                     </tr>
                                     <tr className='h-[90px]'>
@@ -63,7 +77,7 @@ const Transfer = () => {
                                                 <span className='text-lg'>Transfer Amount : </span>
                                           </td>
                                           <td className='pl-8 '>
-                                                <input name="ammount" min="1" type='number' className="w-[90%] p-4 rounded-xl cursor-pointer border-2 border-zinc-400 mt-1" />
+                                                <input name="amount" min="1" value={deposite.amount} onChange={changeHandle} type='number' className="w-[90%] p-4 rounded-xl cursor-pointer border-2 border-zinc-400 mt-1" />
                                           </td>
                                     </tr>
                                     <tr className='h-[90px]'>

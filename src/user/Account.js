@@ -40,7 +40,7 @@ const Account = () => {
             <div key={index} className='p-3 leading-10 border-2 rounded-md account-details border-zinc-800'>
               <p>Account Number: {item.account_number}</p>
               <p className='capitalize'>Account Type: {item.account_type}</p>
-              <p>Balance Amount: {item.deposit_amount}</p>
+              <p>Balance Amount: {item.balance_amount}</p>
               <p>Annual Income: {item.annual_income}</p>
               <p>Account Creation Date: {item.account_creation_date}</p>
               <p>PAN Card: {item.pan_card}</p>

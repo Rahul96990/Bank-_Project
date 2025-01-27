@@ -14,6 +14,8 @@ const Transfer = () => {
             'user_id' : user_id
       });
 
+      console.log("jhwkhqwk")
+
       useEffect(() => {
             const fetchData = async () => {
               try {
@@ -49,10 +51,11 @@ const Transfer = () => {
                               <h1 className='text-3xl capitalize'>Deposite Money</h1>
                         </div>
                         <div className='p-3 m-5 border-2 rounded-xl w-[90%] border-zinc-300'>
+                        <form className='border-none'>
                         <table className='w-[80%]'>
                               <tbody>
                                     <tr className='h-[90px]'>
-                                          <td className='p-5 w-[35%]'>
+                                          <td className='p-5 w-[35%]'> 
                                                 <span className='text-lg'>Select Account Number: </span>
                                           </td>
                                           <td className='pl-8'>
@@ -78,7 +81,7 @@ const Transfer = () => {
                                           </td>
                                           <td className='pl-8 '>
                                                 <input name="amount" min="1" value={deposite.amount} onChange={changeHandle} type='number' className="w-[90%] p-4 rounded-xl cursor-pointer border-2 border-zinc-400 mt-1" />
-                                          </td>
+                                          </td> 
                                     </tr>
                                     <tr className='h-[90px]'>
                                           <td colSpan={2} className='p-5 w-[100%] '>
@@ -87,6 +90,7 @@ const Transfer = () => {
                                     </tr>
                               </tbody>
                         </table>
+                        </form>
                         </div>
                   </div>
             </div>

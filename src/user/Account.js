@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 // import './Dashboard.css'
 import Sidebar from './component/Sidebar'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import axios from 'axios'
 
 const Account = () => {
@@ -33,9 +33,10 @@ const Account = () => {
       <div className='information'>
         <div className='flex justify-around p-3 m-4 align-middle border'>
           <h1 className='text-3xl capitalize'>Accounts information</h1>
-          <button className='p-3 text-white bg-indigo-600 border rounded-xl hover:bg-indigo-500 hover:border hover:border-blue-600'>Add Account + </button>
+          <Link to={`/user/addaccount/${user_id}`}><button className='p-3 text-white bg-indigo-600 border rounded-xl hover:bg-indigo-500 hover:border hover:border-blue-600'>Add Account + </button></Link>
+          
         </div>
-        <div className='grid grid-cols-3 gap-3 m-3 text-lg max-h-[600px] mt-[3rem] overflow-auto custom-scrollbar'>
+        <div className='grid grid-cols-3 gap-3 m-3 text-lg max-h-[500px] mt-[3rem] overflow-auto custom-scrollbar'>
           {account.map((item, index) => (
             <div key={index} className='p-3 leading-10 border-2 rounded-md account-details border-zinc-800'>
               <p>Account Number: {item.account_number}</p>

@@ -9,6 +9,7 @@ import Login from './pages/Login';
 import BlogPage from './pages/BlogPage';
 import Register from './pages/Register';
 import Dashboard from './user/Dashboard';
+import AddAccount from './user/AddAccount';
 import Account from './user/Account';
 import Deposite from './user/Deposite';
 import Withdraw from './user/Withdraw';
@@ -40,6 +41,7 @@ function App() {
                     <Route path="/user/withdraw/:user_id" element={<Withdraw />} />
                     <Route path="/user/profile/:user_id" element={<Profile />} />
                     <Route path="/user/updateprofile/:user_id" element={<UpdateProfile />} />
+                    <Route path="/user/addaccount/:user_id" element={<AddAccount />} />
 
                </Routes>
           </Router>

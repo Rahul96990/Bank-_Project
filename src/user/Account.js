@@ -36,9 +36,9 @@ const Account = () => {
           <Link to={`/user/addaccount/${user_id}`}><button className='p-3 text-white bg-indigo-600 border rounded-xl hover:bg-indigo-500 hover:border hover:border-blue-600'>Add Account + </button></Link>
           
         </div>
-        <div className='grid grid-cols-3 gap-3 m-3 text-lg max-h-[500px] mt-[3rem] overflow-auto custom-scrollbar'>
+        <div className='grid grid-cols-3 gap-3 m-4 text-lg max-h-[500px] mt-[3rem] overflow-auto custom-scrollbar'>
           {account.map((item, index) => (
-            <div key={index} className='p-3 leading-10 border-2 rounded-md account-details border-zinc-800'>
+            <div key={index} className='p-4 pt-8 leading-10 border-2 rounded-md account-details border-zinc-800'>
               <p>Account Number: {item.account_number}</p>
               <p className='capitalize'>Account Type: {item.account_type}</p>
               <p>Balance Amount: {item.balance_amount}</p>
@@ -47,7 +47,7 @@ const Account = () => {
               <p>Name: {item.name}</p>
               <p>Branch Location: {item.branch_location}</p>
               <p>PIN: {item.pin}</p>
-              <p>Annual Income: {item.annual_income}</p>
+              <p className='text-red-600'>Annual Income: {item.annual_income}</p>
               <p>Phone Number: {item.phone_number}</p>
             </div>
           ))}

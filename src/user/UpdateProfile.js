@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import Sidebar from './component/Sidebar';
-import './Dashboard.css';
-import './profile.css';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import { ToastContainer,toast } from 'react-toastify';
 
 const UpdateProfile = () => {
     const { user_id } = useParams();
     const [userData, setUserData] = useState({});
+    // const [count, setCount] = useState(0);
+    // const [track, setTrack] = useState(0);
     const [updateData, setUpdateData] = useState({});
     const [loading, setLoading] = useState(true);
 
@@ -16,7 +17,7 @@ const UpdateProfile = () => {
         fData.append("user_id", user_id);
         axios.post("http://localhost/backend/login.php", fData)
             .then(response => {
-                setUserData(response.data);
+                setUserData(response.data)
                 setLoading(false); // Set loading to false after receiving data
                 setUpdateData(response.data); // Set initial data in updateData as well
             });
@@ -31,13 +32,30 @@ const UpdateProfile = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        
+        let count = 0;
+        let track = 0;
+    
+        for (let key in userData) {
+            count++;
+            if (userData[key] === updateData[key]) {
+                track++;
+            }
+        }
+    
+        if (count === track) {
+            toast.warning("Please update at least one value!");
+            return;
+        }
+        
         const fData = new FormData();
+        fData.append("user_id", user_id);
         fData.append("firstname", updateData.first_name);
         fData.append("middlename", updateData.middle_name);
         fData.append("lastname", updateData.last_name);
         fData.append("password", updateData.password);
         fData.append("email", updateData.email);
-        fData.append("phone", updateData.phone);
+        fData.append("phone", updateData.phone_number);
         fData.append("dob", updateData.dob);
         fData.append("address", updateData.address);
         fData.append("state", updateData.state);
@@ -47,14 +65,10 @@ const UpdateProfile = () => {
 
         try {
             const response = await axios.post("http://localhost/backend/update.php", fData);
-            console.log(updateData)
-            if (response.data.success) {
-                alert("Profile updated successfully!");
-            } else {
-                alert("Failed to update profile.");
+            if (response.data.message == "Profile updated successfully!") {
+                toast.success("Profile updated successfully!");
             }
         } catch (error) {
-            console.error("Error updating profile:", error);
             alert("Error updating profile. Please try again.");
         }
     };
@@ -75,20 +89,20 @@ const UpdateProfile = () => {
                 <div className='flex justify-around p-3 align-middle border'>
                     <h1 className='text-3xl capitalize'>Update Profile</h1>
                 </div>
-                <form onSubmit={handleSubmit} className='rounded-2xl'>
+                <form onSubmit={handleSubmit} className='rounded-2xl w-[90%] border-2'>
                     <div className='profile-data'>
-                        <div className='flex'>
+                        <div className='flex w-[90%] justify-center'>
                             <div className='box'>
                                 <p>First Name :</p>
-                                <input name='first_name' className="w-[94%] p-2 border-2 border-zinc-400 focus:border-zinc-600 mt-1" value={updateData.first_name || ''} onChange={handleChange} />
+                                <input name='first_name' className="w-[100%] p-2 border-2 border-zinc-400 focus:border-zinc-600 mt-1" value={updateData.first_name || ''} onChange={handleChange} />
                             </div>
                             <div className='box'>
                                 <p>Middle Name :</p>
-                                <input name='middle_name' className="w-[94%] p-2 border-2 border-zinc-400 focus:border-zinc-600 mt-1" value={updateData.middle_name || ''} onChange={handleChange} />
+                                <input name='middle_name' className="w-[100%] p-2 border-2 border-zinc-400 focus:border-zinc-600 mt-1" value={updateData.middle_name || ''} onChange={handleChange} />
                             </div>
                             <div className='box'>
                                 <p>Last Name :</p>
-                                <input name='last_name' className="w-[94%] p-2 border-2 border-zinc-400 focus:border-zinc-600 mt-1" value={updateData.last_name || ''} onChange={handleChange} />
+                                <input name='last_name' className="w-[100%] p-2 border-2 border-zinc-400 focus:border-zinc-600 mt-1" value={updateData.last_name || ''} onChange={handleChange} />
                             </div>
                         </div>
                         <div className='flex'>
@@ -102,7 +116,7 @@ const UpdateProfile = () => {
                             </div>
                             <div className='box'>
                                 <p>Phone :</p>
-                                <input name='phone' className="w-[94%] p-2 border-2 border-zinc-400 focus:border-zinc-600 mt-1" value={updateData.phone || ''} onChange={handleChange} />
+                                <input name='phone_number' className="w-[94%] p-2 border-2 border-zinc-400 focus:border-zinc-600 mt-1" value={updateData.phone_number || ''} onChange={handleChange} />
                             </div>
                         </div>
                         <div className='flex'>
@@ -146,6 +160,7 @@ const UpdateProfile = () => {
                         <button type="submit" className="p-2 mt-4 text-white bg-blue-700 rounded">Update</button>
                     </div>
                 </form>
+                <ToastContainer/>
             </div>
         </div>
     );

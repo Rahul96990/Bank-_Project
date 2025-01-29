@@ -6,21 +6,21 @@ const Navbar = () => {
 	
 	return (
 		<div className=''>
-			<div className='flex h-20 bg-indigo-600 pl-20 pr-14'>
+			<div className='flex h-20 pl-20 bg-indigo-600 pr-14'>
 				<div className='left'>
-					<Link to="/"><h1 className='text-white text-lg italic'>TrustWave Bank</h1></Link>
+					<Link to="/"><h1 className='text-lg italic text-white'>TrustWave Bank</h1></Link>
 				</div>
 				<div className='middle'>
-					<ul className=" flex align-middle gap-8">
-						<li className='text-white text-lg'><Link to="/">Home</Link></li>
-						<li className='text-white text-lg'><Link to="/about">About Us</Link></li>
-						<li className='text-white text-lg'><Link to="/blog">Blogs</Link></li>
-						<li className='text-white text-lg'><Link to="/contact">Contact</Link></li>
+					<ul className="flex gap-8 align-middle ">
+						<li className='text-lg text-white'><Link to="/">Home</Link></li>
+						<li className='text-lg text-white'><Link to="/about">About Us</Link></li>
+						<li className='text-lg text-white'><Link to="/blog">Blogs</Link></li>
+						<li className='text-lg text-white'><Link to="/contact">Contact</Link></li>
 					</ul>
 				</div>
-				<div className='right flex gap-6'>
-					<button className='bg-white rounded-md p-2 pl-4 pr-4'><Link to="/login">Login</Link></button>
-					<button className='bg-white rounded-md p-2 pl-4 pr-4'><Link to="/register">Register</Link></button>
+				<div className='flex gap-6 right'>
+					<button className='p-2 pl-4 pr-4 bg-white rounded-md'><Link to="/login">Login</Link></button>
+					<button className='p-2 pl-4 pr-4 bg-white rounded-md'><Link to="/register">Register</Link></button>
 				</div>
 			</div>
 		</div>

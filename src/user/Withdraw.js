@@ -71,7 +71,7 @@ const Transfer = () => {
                               <h1 className='text-3xl capitalize'>Withdraw Money</h1>
                         </div>
                         <div className='p-3 m-5 border-2 rounded-xl w-[90%] border-zinc-300'>
-                        <form method='post' onSubmit={withdrawAmount}>
+                        <form method='post' className='border-none' onSubmit={withdrawAmount}>
                         <table className='w-[80%]'>
                               <tbody>
                                     <tr className='h-[90px]'>

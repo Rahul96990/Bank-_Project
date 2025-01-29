@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
 import Sidebar from './component/Sidebar'
-import './Dashboard.css'
+// import './Dashboard.css'
 import { useParams } from 'react-router-dom'
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
@@ -18,7 +18,7 @@ const AddAccount = () => {
             'account_number': '',
             'account_type': '',
             'branch_location': '',
-            'deposite_amount': '',
+            'balance_amount': '',
             'annual_income': '',
             'pan_num': '',
             'aadhaar_number': '',
@@ -74,7 +74,7 @@ const AddAccount = () => {
             fData.append('account_number', newaccount.account_number);
             fData.append('account_type', newaccount.account_type);
             fData.append('branch_location', newaccount.branch_location);
-            fData.append('deposit_amount', newaccount.deposite_amount);
+            fData.append('balance_amount', newaccount.balance_amount);
             fData.append('annual_income', newaccount.annual_income);
             fData.append('pan_num', newaccount.pan_num);
             fData.append('aadhaar_number', newaccount.aadhaar_number);
@@ -83,7 +83,8 @@ const AddAccount = () => {
 
             try {
                   const response = await axios.post("http://localhost/backend/createaccount.php", fData)
-                  if (response.data.message == "Account Created Successfully ") {
+                  if (response.data.message == "Account Created Successfully") {
+                        toast.success("Account Created Successfully")
                         
                   }
             } catch (error) {
@@ -142,7 +143,7 @@ const AddAccount = () => {
                                     <div className='flex mt-6'>
                                           <div className='box w-[30%]'>
                                                 <p>Deposite Money (Min : 2000)</p>
-                                                <input value={newaccount.deposite_amount} name="deposite_amount" className='p-2 mt-2 border-2 border-zinc-400 w-[100%] border' onChange={onChange} required />
+                                                <input value={newaccount.balance_amount} name="balance_amount" className='p-2 mt-2 border-2 border-zinc-400 w-[100%] border' onChange={onChange} required />
                                           </div>
                                           <div className='box w-[30%]'>
                                                 <p>Annual Income (Min : 10000)</p>

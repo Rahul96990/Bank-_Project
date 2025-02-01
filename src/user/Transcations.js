@@ -48,9 +48,9 @@ const Transactions = () => {
     <div className="dashboard-container">
       <Sidebar user_id={user_id} />
       <div className="content">
-        <div className='flex justify-around p-3 m-4 align-middle border'>
-          <h1 className='text-3xl capitalize'>Transaction Information</h1>
-        </div>
+      <div className='p-3 m-4 border '>
+                                        <h1 className='text-3xl capitalize'>Your Transactions</h1>
+                                </div>
           <input
             type="text"
             placeholder="Search any data.."

@@ -69,8 +69,8 @@ const Transfer = () => {
       return (
             <div className='dashboard-container'>
                   <Sidebar user_id={user_id} />
-                  <div className='information'>
-                        <div className='flex justify-around p-3 m-4 align-middle border'>
+                  <div>
+                        <div className='p-3 m-4 border'>
                               <h1 className='text-3xl capitalize'>Transfer Money</h1>
                         </div>
                         <div className='p-3 m-5 border-2 rounded-xl w-[90%] border-zinc-300'>

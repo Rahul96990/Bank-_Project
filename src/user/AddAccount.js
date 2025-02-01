@@ -97,9 +97,9 @@ const AddAccount = () => {
             <div className='dashboard-container'>
                   <Sidebar user_id={user_id} />
                   <div className='add_account_conatiner'>
-                        <div className='flex justify-around p-3 m-4 align-middle border'>
-                              <h1 className='text-3xl capitalize'>Add New Account</h1>
-                        </div>
+                  <div className='p-3 m-4 border '>
+                                        <h1 className='text-3xl capitalize'>Create New Account</h1>
+                                </div>
                         <div className='w-[95%] rounded-md border-none'>
                               <form className='p-5 m-5 border-2 rounded-md border-zinc-300' onSubmit={handleAccount}>
                                     <div className='flex'>

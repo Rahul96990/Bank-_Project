@@ -24,9 +24,9 @@ const Dashboard = () => {
         <Sidebar user_id={user_id} />
       </div>
       <div className="col-span-4"> {/* Added padding for better content spacing */}
-      <div className='flex justify-around p-3 m-4 align-middle border'>
-          <h1 className='text-3xl capitalize'>Dashboard</h1>
-        </div>
+      <div className='p-3 m-4 border'>
+                              <h1 className='text-3xl capitalize'>Dashboard</h1>
+                        </div>
       </div>
     </div>
   )

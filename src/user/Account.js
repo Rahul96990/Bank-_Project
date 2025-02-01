@@ -31,10 +31,9 @@ const Account = () => {
     <div className='dashboard-container'>
       <Sidebar user_id={user_id} />
       <div className='information'>
-        <div className='flex justify-around p-3 m-4 align-middle border'>
-          <h1 className='text-3xl capitalize'>Accounts information</h1>
+        <div className='flex items-center justify-between p-3 m-4 align-middle border'>
+          <h1 className='text-3xl capitalize'>Account Information</h1>
           <Link to={`/user/addaccount/${user_id}`}><button className='p-3 text-white bg-indigo-600 border rounded-xl hover:bg-indigo-500 hover:border hover:border-blue-600'>Add Account + </button></Link>
-          
         </div>
         <div className='grid grid-cols-3 gap-3 m-4 text-lg max-h-[500px] mt-[3rem] overflow-auto custom-scrollbar'>
           {account.map((item, index) => (

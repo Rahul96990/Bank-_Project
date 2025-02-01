@@ -138,7 +138,7 @@ const Register = () => {
 
                                    <div className='mt-4 box'>
                                           <p>Aadhaar:</p>
-                                          <input type="text" className="w-[95%] p-2 border-2 border-zinc-400 mt-1" name="aadhaar" value={formData.aadhaar} onChange={handleChange} required />
+                                          <input type="number" maxLength='12' className="w-[95%] p-2 border-2 border-zinc-400 mt-1" name="aadhaar" value={formData.aadhaar} onChange={handleChange} required />
                                    </div>
 
                                    <div className='mt-4 box'>

@@ -30,16 +30,16 @@ const Transactions = () => {
   const highlightText = (text, searchTerm) => {
     if (!searchTerm) return text;
     const parts = text.split(new RegExp(`(${searchTerm})`, 'gi'));
-    return parts.map((part, index) => 
-      part.toLowerCase() === searchTerm.toLowerCase() ? 
-      `<span style="background-color: yellow;">${part}</span>` : part
+    return parts.map((part, index) =>
+      part.toLowerCase() === searchTerm.toLowerCase() ?
+        `<span style="background-color: yellow;">${part}</span>` : part
     ).join('');
   };
 
   const filteredTransactions = transactions.filter((item) => {
     const searchTerm = search.toLowerCase();
     if (searchTerm === '') return true;
-    return Object.values(item).some(value => 
+    return Object.values(item).some(value =>
       value.toString().toLowerCase().includes(searchTerm)
     );
   });
@@ -48,16 +48,16 @@ const Transactions = () => {
     <div className="dashboard-container">
       <Sidebar user_id={user_id} />
       <div className="content">
-      <div className='p-3 m-4 border '>
-                                        <h1 className='text-3xl capitalize'>Your Transactions</h1>
-                                </div>
-          <input
-            type="text"
-            placeholder="Search any data.."
-            className="p-2 m-3 border border-zinc-500 w-[50%] text-black"
-            onChange={(e) => setSearch(e.target.value)}
-          />
-        <div className="max-h-[560px] overflow-auto">
+        <div className='p-3 m-4 border '>
+          <h1 className='text-3xl capitalize'>Your Transactions</h1>
+        </div>
+        <input
+          type="text"
+          placeholder="Search any data.."
+          className="p-2 m-3 border border-zinc-500 w-[50%] text-black"
+          onChange={(e) => setSearch(e.target.value)}
+        />
+        <div className="max-h-[500px] overflow-auto">
           {loading ? (
             <p className="m-3 text-center">Loading...</p>
           ) : error ? (

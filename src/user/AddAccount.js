@@ -65,6 +65,11 @@ const AddAccount = () => {
 
 
       const handleAccount = async (e) => {
+
+            if(newaccount.balance_amount){
+                  
+            }
+
             e.preventDefault();
             const fData = new FormData()
             fData.append('user_id', user_id);
@@ -85,7 +90,7 @@ const AddAccount = () => {
                   const response = await axios.post("http://localhost/backend/createaccount.php", fData)
                   if (response.data.message == "Account Created Successfully") {
                         toast.success("Account Created Successfully")
-                        
+
                   }
             } catch (error) {
 
@@ -97,41 +102,41 @@ const AddAccount = () => {
             <div className='dashboard-container'>
                   <Sidebar user_id={user_id} />
                   <div className='add_account_conatiner'>
-                  <div className='p-3 m-4 border '>
-                                        <h1 className='text-3xl capitalize'>Create New Account</h1>
-                                </div>
-                        <div className='w-[95%] rounded-md border-none'>
-                              <form className='p-5 m-5 border-2 rounded-md border-zinc-300' onSubmit={handleAccount}>
-                                    <div className='flex'>
-                                          <div className='box w-[30%]'>
+                        <div className='p-3 m-4 border '>
+                              <h1 className='text-3xl capitalize'>Create New Account</h1>
+                        </div>
+                        <form className='' onSubmit={handleAccount}>
+                              <div className='border-2 rounded-xl w-[95%] m-6 pb-7 p-4 pl-6 profile-data'>
+                                    <div className='flex align-middle justify-evenly'>
+                                          <div className='flex-1'>
                                                 <p>Full Name</p>
-                                                <input name="fullname" value={newaccount.fullname} className='p-2 mt-2 border-2 border-zinc-400 w-[100%] border' onChange={onChange} required />
+                                                <input name="fullname" value={newaccount.fullname} className="w-[80%] p-2 mt-1 border-2 border-zinc-400 focus:border-zinc-600" onChange={onChange} required />
                                           </div>
-                                          <div className='box w-[30%]'>
+                                          <div className='flex-1'>
                                                 <p>Phone Number</p>
-                                                <input name="phone_number" value={newaccount.phone_number} className='p-2 mt-2 border-2 border-zinc-400 w-[100%] border' onChange={onChange} required />
+                                                <input name="phone_number" value={newaccount.phone_number} className="w-[80%] p-2 mt-1 border-2 border-zinc-400 focus:border-zinc-600" onChange={onChange} required />
                                           </div>
-                                          <div className='box w-[30%]'>
+                                          <div className='flex-1'>
                                                 <p>Email</p>
-                                                <input name="email" value={newaccount.email} className='p-2 mt-2 border-2 border-zinc-400 w-[100%] border' onChange={onChange} required />
+                                                <input name="email" value={newaccount.email} className="w-[80%] p-2 mt-1 border-2 border-zinc-400 focus:border-zinc-600" onChange={onChange} required />
                                           </div>
                                     </div>
                                     <div className='flex mt-6'>
-                                          <div className='box w-[30%]'>
+                                          <div className='flex-1'>
                                                 <p>Account Number</p>
-                                                <input name="account_number" value={newaccount.account_number} className='p-2 mt-2 border-2 border-zinc-400 w-[100%] border' onChange={onChange} required />
+                                                <input name="account_number" value={newaccount.account_number} className="w-[80%] p-2 mt-1 border-2 border-zinc-400 focus:border-zinc-600" onChange={onChange} required />
                                           </div>
-                                          <div className='box w-[30%]'>
+                                          <div className='flex-1'>
                                                 <p>Account Type</p>
-                                                <select value={newaccount.account_type} name="account_type" className='p-2 mt-2 border-2 border-zinc-400 w-[100%] border' onChange={onChange} required>
+                                                <select value={newaccount.account_type} name="account_type" className="w-[80%] p-2 mt-1 border-2 border-zinc-400 focus:border-zinc-600" onChange={onChange} required>
                                                       <option disabled>Select </option>
                                                       <option>Saving</option>
                                                       <option>Current</option>
                                                 </select>
                                           </div>
-                                          <div className='box w-[30%]'>
+                                          <div className='flex-1'>
                                                 <p>Branch Location</p>
-                                                <select value={newaccount.branch_location} name="branch_location" className='p-2 mt-2 border-2 border-zinc-400 w-[100%] border' onChange={onChange} required>
+                                                <select value={newaccount.branch_location} name="branch_location" className="w-[80%] p-2 mt-1 border-2 border-zinc-400 focus:border-zinc-600" onChange={onChange} required>
                                                       <option disabled>Select </option>
                                                       <option>Mumbai</option>
                                                       <option>Pune</option>
@@ -141,37 +146,37 @@ const AddAccount = () => {
                                           </div>
                                     </div>
                                     <div className='flex mt-6'>
-                                          <div className='box w-[30%]'>
-                                                <p>Deposite Money (Min : 2000)</p>
-                                                <input value={newaccount.balance_amount} name="balance_amount" className='p-2 mt-2 border-2 border-zinc-400 w-[100%] border' onChange={onChange} required />
+                                          <div className='flex-1'>
+                                                <p>Deposite Money (Min : 5000)</p>
+                                                <input value={newaccount.balance_amount} type='number' min="5000" name="balance_amount" className="w-[80%] p-2 mt-1 border-2 border-zinc-400 focus:border-zinc-600" onChange={onChange} required />
                                           </div>
-                                          <div className='box w-[30%]'>
+                                          <div className='flex-1'>
                                                 <p>Annual Income (Min : 10000)</p>
-                                                <input value={newaccount.annual_income} name="annual_income" className='p-2 mt-2 border-2 border-zinc-400 w-[100%] border' onChange={onChange} required />
+                                                <input value={newaccount.annual_income} type='number' min="10000" name="annual_income" className="w-[80%] p-2 mt-1 border-2 border-zinc-400 focus:border-zinc-600" onChange={onChange} required />
                                           </div>
-                                          <div className='box w-[30%]'>
+                                          <div className='flex-1'>
                                                 <p>Pan Number</p>
-                                                <input value={newaccount.pan_num} name="pan_num" className='p-2 mt-2 border-2 border-zinc-400 w-[100%] border' onChange={onChange} required />
+                                                <input value={newaccount.pan_num} name="pan_num" className="w-[80%] p-2 mt-1 border-2 border-zinc-400 focus:border-zinc-600" onChange={onChange} required />
                                           </div>
                                     </div>
                                     <div className='flex mt-6'>
-                                          <div className='box w-[30%]'>
+                                          <div className='flex-1'>
                                                 <p>Aadhaar Number</p>
-                                                <input value={newaccount.aadhaar_number} name="aadhaar_number" className='p-2 mt-2 border-2 border-zinc-400 w-[100%] border' onChange={onChange} required />
+                                                <input value={newaccount.aadhaar_number} name="aadhaar_number" className="w-[80%] p-2 mt-1 border-2 border-zinc-400 focus:border-zinc-600" onChange={onChange} required />
                                           </div>
-                                          <div className='box w-[30%]'>
+                                          <div className='flex-1'>
                                                 <p>Occupation  </p>
-                                                <input value={newaccount.occupation} name="occupation" className='p-2 mt-2 border-2 border-zinc-400 w-[100%] border' onChange={onChange} required />
+                                                <input value={newaccount.occupation} name="occupation" className="w-[80%] p-2 mt-1 border-2 border-zinc-400 focus:border-zinc-600" onChange={onChange} required />
                                           </div>
-                                          <div className='box w-[30%]'>
+                                          <div className='flex-1'>
                                                 <p>Pin Number</p>
-                                                <input value={newaccount.pin_num} name="pin_num" className='p-2 mt-2 border-2 border-zinc-400 w-[100%] border' onChange={onChange} required />
+                                                <input value={newaccount.pin_num} name="pin_num" className="w-[80%] p-2 mt-1 border-2 border-zinc-400 focus:border-zinc-600" onChange={onChange} required />
                                           </div>
                                     </div>
-                                    <button className='p-3 mt-5 text-white bg-indigo-600 border rounded-xl hover:bg-indigo-500 hover:border hover:border-blue-600'>Create New Account</button>
-                              </form>
-                              <ToastContainer />
-                        </div>
+                                    <button type="submit" className='p-3 mt-4 text-white bg-indigo-600 border rounded-xl hover:bg-indigo-500 hover:border hover:border-blue-600'>Create New Account</button>
+                              </div>
+                        </form>
+                        <ToastContainer />
                   </div>
             </div>
       )

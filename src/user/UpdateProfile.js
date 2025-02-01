@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Sidebar from './component/Sidebar';
-import { useParams ,useNavigate , Link} from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 
@@ -69,8 +69,8 @@ const UpdateProfile = () => {
                   if (response.data.message == "Profile updated successfully!") {
                         toast.success("Profile updated successfully!");
                         setTimeout(() => {
-					navigate(`/user/profile/${user_id}`); // Navigate to Dashboard
-				}, 5000);
+                              navigate(`/user/profile/${user_id}`); // Navigate to Dashboard
+                        }, 5000);
                   }
             } catch (error) {
                   alert("Error updating profile. Please try again.");
@@ -94,17 +94,17 @@ const UpdateProfile = () => {
                               <h1 className='text-3xl capitalize'>Update Profile</h1>
                         </div>
                         <form onSubmit={handleSubmit} className=''>
-                        <div className='border-2 rounded-xl w-[95%] m-6 pb-7 p-4 pl-6 profile-data'>
-                        <div className='flex align-middle justify-evenly'>
-                                           <div className='flex-1 box'>
+                              <div className='border-2 rounded-xl w-[95%] m-6 pb-7 p-4 pl-6 profile-data'>
+                                    <div className='flex align-middle justify-evenly'>
+                                          <div className='flex-1 box'>
                                                 <p>First Name :</p>
                                                 <input name='first_name' className="w-[80%] p-2 mt-1 border-2 border-zinc-400 focus:border-zinc-600" value={updateData.first_name || ''} onChange={handleChange} />
                                           </div>
-                                           <div className='flex-1 box'>
+                                          <div className='flex-1 box'>
                                                 <p>Middle Name :</p>
                                                 <input name='middle_name' className="w-[80%] p-2 mt-1 border-2 border-zinc-400 focus:border-zinc-600" value={updateData.middle_name || ''} onChange={handleChange} />
                                           </div>
-                                           <div className='flex-1 box'>
+                                          <div className='flex-1 box'>
                                                 <p>Last Name :</p>
                                                 <input name='last_name' className="w-[80%] p-2 mt-1 border-2 border-zinc-400 focus:border-zinc-600" value={updateData.last_name || ''} onChange={handleChange} />
                                           </div>
@@ -161,7 +161,7 @@ const UpdateProfile = () => {
                                                 </select>
                                           </div>
                                     </div>
-                                    <button type="submit"  className='p-3 mt-4 text-white bg-indigo-600 border rounded-xl hover:bg-indigo-500 hover:border hover:border-blue-600'>Update</button>
+                                    <button type="submit" className='p-3 mt-4 text-white bg-indigo-600 border rounded-xl hover:bg-indigo-500 hover:border hover:border-blue-600'>Update</button>
                               </div>
                         </form>
                         <ToastContainer />

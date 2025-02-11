@@ -66,8 +66,8 @@ const AddAccount = () => {
 
       const handleAccount = async (e) => {
 
-            if(newaccount.balance_amount){
-                  
+            if (newaccount.balance_amount) {
+
             }
 
             e.preventDefault();
@@ -128,21 +128,34 @@ const AddAccount = () => {
                                           </div>
                                           <div className='flex-1'>
                                                 <p>Account Type</p>
-                                                <select value={newaccount.account_type} name="account_type" className="w-[80%] p-2 mt-1 border-2 border-zinc-400 focus:border-zinc-600" onChange={onChange} required>
-                                                      <option disabled>Select </option>
-                                                      <option>Saving</option>
-                                                      <option>Current</option>
+                                                <select
+                                                      name="account_type"
+                                                      value={newaccount.account_type || ""}
+                                                      className="w-[80%] p-2 mt-1 border-2 border-zinc-400 focus:border-zinc-600"
+                                                      onChange={onChange}
+                                                      required
+                                                >
+                                                      <option value="" disabled>Select</option>
+                                                      <option value="saving">Saving</option>
+                                                      <option value="current">Current</option>
                                                 </select>
                                           </div>
                                           <div className='flex-1'>
                                                 <p>Branch Location</p>
-                                                <select value={newaccount.branch_location} name="branch_location" className="w-[80%] p-2 mt-1 border-2 border-zinc-400 focus:border-zinc-600" onChange={onChange} required>
-                                                      <option disabled>Select </option>
-                                                      <option>Mumbai</option>
-                                                      <option>Pune</option>
-                                                      <option>Nashik</option>
-                                                      <option>Satara</option>
+                                                <select
+                                                      name="branch_location"
+                                                      value={newaccount.branch_location || ""}
+                                                      className="w-[80%] p-2 mt-1 border-2 border-zinc-400 focus:border-zinc-600"
+                                                      onChange={onChange}
+                                                      required
+                                                >
+                                                      <option value="" disabled>Select</option>
+                                                      <option value="Mumbai">Mumbai</option>
+                                                      <option value="Pune">Pune</option>
+                                                      <option value="Nashik">Nashik</option>
+                                                      <option value="Satara">Satara</option>
                                                 </select>
+
                                           </div>
                                     </div>
                                     <div className='flex mt-6'>

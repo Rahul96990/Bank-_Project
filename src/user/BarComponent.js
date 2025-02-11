@@ -64,19 +64,19 @@ const BarComponent = () => {
   return (
     <div style={{ width: "60%", height: 400 }} className="mt-4 border-2">
       <div className="flex justify-between p-3">
-      <h2 className="text-indigo-900">Transaction Amount Bar Chart</h2>
-      <select value={filterData} onChange={changeFilter} className="p-2 border-2">
-        <option value="">All Transactions</option>
-        <option value="Deposite">Deposite</option>
-        <option value="Withdraw">Withdraw</option>
-        <option value="Transfer">Transfer</option>
-      </select>
+        <h2 className="text-indigo-900">Transaction's Bar Chart</h2>
+        <select value={filterData} onChange={changeFilter} className="p-2 border-2">
+          <option value="">All Transactions</option>
+          <option value="Deposite">Deposite</option>
+          <option value="Withdraw">Withdraw</option>
+          <option value="Transfer">Transfer</option>
+        </select>
       </div>
 
       <ResponsiveContainer width="100%" height="100%">
         <BarChart data={filteredTransactions} margin={{ top: 10, right: 10, left: 20, bottom: 50 }}>
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="date" tick={false}/>
+          <XAxis dataKey="date" tick={false} />
           <YAxis />
           <Tooltip content={<CustomTooltip />} />
           <Bar dataKey="amount" fill="#8884d8" />

@@ -72,7 +72,8 @@ const Transfer = () => {
                   <div className='p-3 m-4 border'>
                               <h1 className='text-3xl capitalize'>Deposite Money</h1>
                         </div>
-                        <div className='p-3 m-5 border-2 rounded-xl w-[90%] border-zinc-300'>
+                        { account.length <= 0 ? <p className='text-center w-[800px]'>You don't have an account yet. Please create account.</p>
+                              : <div className='p-3 m-5 border-2 rounded-xl w-[90%] border-zinc-300'>
                               <form className='border-none' onSubmit={handleDeposite}>
                                     <table className='w-[80%]'>
                                           <tbody>
@@ -114,7 +115,7 @@ const Transfer = () => {
                                     </table>
                               </form>
                               <ToastContainer />
-                        </div>
+                        </div>}
                   </div>
             </div>
       )

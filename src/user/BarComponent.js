@@ -62,7 +62,8 @@ const BarComponent = () => {
   };
 
   return (
-    <div style={{ width: "60%", height: 400 }} className="mt-4 border-2">
+    <div style={{ width: "100%", height: 400 }} className="mt-4 border-2">
+      {transactions.length <= 0 ? <p>You don't have any transaction yet</p> : 
       <div className="flex justify-between p-3">
         <h2 className="text-indigo-900">Transaction's Bar Chart</h2>
         <select value={filterData} onChange={changeFilter} className="p-2 border-2">
@@ -72,6 +73,9 @@ const BarComponent = () => {
           <option value="Transfer">Transfer</option>
         </select>
       </div>
+      }
+
+      {transactions.length <= 0  ? <p></p> : 
 
       <ResponsiveContainer width="100%" height="100%">
         <BarChart data={filteredTransactions} margin={{ top: 10, right: 10, left: 20, bottom: 50 }}>
@@ -82,6 +86,7 @@ const BarComponent = () => {
           <Bar dataKey="amount" fill="#8884d8" />
         </BarChart>
       </ResponsiveContainer>
+      }
     </div>
   );
 };

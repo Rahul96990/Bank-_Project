@@ -36,13 +36,18 @@ const Transactions = () => {
     ).join('');
   };
 
-  const filteredTransactions = transactions.filter((item) => {
-    const searchTerm = search.toLowerCase();
-    if (searchTerm === '') return true;
-    return Object.values(item).some(value =>
-      value.toString().toLowerCase().includes(searchTerm)
-    );
-  });
+
+  const filteredTransactions = Array.isArray(transactions)
+  ? transactions.filter((item) => {
+      const searchTerm = search.toLowerCase();
+      if (searchTerm === '') return true;
+      return Object.values(item).some(value =>
+        value.toString().toLowerCase().includes(searchTerm)
+      );
+    })
+  : [];
+
+
 
   return (
     <div className="dashboard-container">
@@ -51,13 +56,18 @@ const Transactions = () => {
         <div className='p-3 m-4 border '>
           <h1 className='text-3xl capitalize'>Your Transactions</h1>
         </div>
-        <input
+        {
+          transactions.length <=0 ? "" :  <input
           type="text"
           placeholder="Search any data.."
           className="p-2 m-3 border border-zinc-500 w-[50%] text-black"
           onChange={(e) => setSearch(e.target.value)}
-        />
-        <div className="max-h-[500px] overflow-auto">
+          />
+        }
+        {transactions.length <=0 ? 
+        <p className="m-3 text-center">No transactions found. Start by making your first transaction!</p> : 
+      
+        <div className="max-h-[550px] overflow-auto">
           {loading ? (
             <p className="m-3 text-center">Loading...</p>
           ) : error ? (
@@ -98,7 +108,7 @@ const Transactions = () => {
               </tbody>
             </table>
           )}
-        </div>
+        </div>}
       </div>
     </div>
   );

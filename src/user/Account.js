@@ -36,7 +36,8 @@ const Account = () => {
           <Link to={`/user/addaccount/${user_id}`}><button className='p-3 text-white bg-indigo-600 border rounded-xl hover:bg-indigo-500 hover:border hover:border-blue-600'>Add Account + </button></Link>
         </div>
         <div className='grid grid-cols-3 gap-3 m-4 text-lg max-h-[500px] mt-[3rem] overflow-auto custom-scrollbar'>
-          {account.map((item, index) => (
+          {account.length <= 0 ? <p className='text-center w-[800px]'>You don't have an account yet. Please create account.</p> : 
+            account.map((item, index) => (
             <div key={index} className='p-4 pt-8 leading-10 border-2 rounded-md account-details border-zinc-800'>
               <p>Account Number: {item.account_number}</p>
               <p className='capitalize'>Account Type: {item.account_type}</p>

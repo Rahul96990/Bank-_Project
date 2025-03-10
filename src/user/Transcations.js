@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Sidebar from './component/Sidebar';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import No_Trans1 from '../assets/No_Trans1.webp';
 
 const Transactions = () => {
   const { user_id } = useParams();
@@ -65,9 +66,12 @@ const Transactions = () => {
           />
         }
         {transactions.length <=0 ? 
-        <p className="m-3 text-center">No transactions found. Start by making your first transaction!</p> : 
+        <div>
+          <img src={No_Trans1} />
+        <p className="m-3 text-center">No transactions found. Start by making your first transaction!</p>
+        </div> : 
       
-        <div className="max-h-[550px] overflow-auto">
+        <div className="max-h-[500px] overflow-auto">
           {loading ? (
             <p className="m-3 text-center">Loading...</p>
           ) : error ? (

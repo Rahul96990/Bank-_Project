@@ -30,10 +30,7 @@ const Dashboard = () => {
 					"http://localhost/backend/dashboard.php",
 					fData
 				);
-
-				console.log(response.data);
 				setTotalsAmtBal(response.data);
-				console.log(totalsAmtBal);
 				isLoggedIn(true)
 			} catch (error) {
 				console.error("Error fetching data:", error);

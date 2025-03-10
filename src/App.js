@@ -2,7 +2,6 @@
 import React, { useContext, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
-import Navbar from './components/Navbar'
 import AboutUs from './pages/AboutUs';
 import Contact from './pages/Contact';
 import Login from './pages/Login';
@@ -14,11 +13,14 @@ import Account from './user/Account';
 import Deposite from './user/Deposite';
 import Withdraw from './user/Withdraw';
 import Transfer from './user/Transfer';
+import Navbar from './components/Navbar'
 import Header from './user/component/Header';
 import { AuthContext, AuthProvider } from './user/AuthContext';
 import Profile from './user/Profile';
 import Transcations from './user/Transcations';
 import UpdateProfile from './user/UpdateProfile';
+import CheckBal from './user/CheckBal';
+import Loan from './user/Loan';
 
 function App() {
      const { isLoggedIn } = useContext(AuthContext)
@@ -35,7 +37,9 @@ function App() {
 
                     <Route path="/user/dashboard/:user_id" element={<Dashboard />} />
                     <Route path="/user/account/:user_id" element={<Account />} />
+                    <Route path="/user/checkbal/:user_id" element={<CheckBal />} />
                     <Route path="/user/deposite/:user_id" element={<Deposite />} />
+                    <Route path="/user/loan/:user_id" element={<Loan />} />
                     <Route path="/user/transfer/:user_id" element={<Transfer />} />
                     <Route path="/user/transcations/:user_id" element={<Transcations />} />
                     <Route path="/user/withdraw/:user_id" element={<Withdraw />} />

@@ -40,7 +40,7 @@ const Account = () => {
           {account.length <= 0 ?
             /* This part of the code is a conditional rendering using a ternary operator. */
             <div className="">
-              <img src={AddUser} alt="Add User" className='ml-[350px]'/>
+              <Link to={`/user/addaccount/${user_id}`}><img src={AddUser} alt="Add User" className='ml-[350px]'/></Link>
               <p className="text-center w-[1100px]">
                 You don't have an account yet. Please create an account.
               </p>

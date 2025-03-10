@@ -13,6 +13,8 @@ const Sidebar = ({ user_id }) => {
 	const menuItems = [
 		{ label: 'dashboard', link: `/user/dashboard/${user_id}` },
 		{ label: 'account', link: `/user/account/${user_id}` },
+		{ label: 'Apply for Loan', link: `/user/loan/${user_id}` },
+		{ label: 'Check Balance', link: `/user/checkbal/${user_id}` },
 		{ label: 'Transcations', link: `/user/transcations/${user_id}` },
 		{ label: 'transfer', link: `/user/transfer/${user_id}` },
 		{ label: 'withdraw', link: `/user/withdraw/${user_id}` },
@@ -34,14 +36,14 @@ const Sidebar = ({ user_id }) => {
 				<div className='w-auto text-6xl rounded-full border-6 h-[70px] p-3'>
 					<FaUserAlt className='user-icon' />
 				</div>
-				<div className='m-3 mt-3 info'>
+				<div className='m-3 mt-2 info'>
 					<h1>{user.first_name} {user.last_name}</h1>
 					<p className='pb-2'>{user.email}</p>
 				</div>
 			</div>
 			<div className='p-2 menu-list'>
 				{menuItems.map((item, index) => (
-					<li key={index} className={`menu-item mb-3 capitalize transition-2 rounded-tr-3xl rounded-br-3xl cursor-pointer text-lg p-3 pl-4
+					<li key={index} className={`menu-item mb-2 capitalize transition-2 rounded-tr-3xl rounded-br-3xl cursor-pointer text-lg p-[0.5rem] pl-4
   ${location.pathname === item.link ? 'text-blue-700 bg-white' : 'hover:bg-white hover:text-blue-700'} ${location.pathname !== item.link ? 'text-white' : 'hover:bg-white hover:text-blue-700'}`}>
 						<Link to={item.link}>{item.label}</Link>
 					</li>

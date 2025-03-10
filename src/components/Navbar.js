@@ -19,8 +19,8 @@ const Navbar = () => {
 					</ul>
 				</div>
 				<div className='flex gap-4'>
-					<button className='p-3 bg-white border rounded-md hover:bg-indigo-100 hover:border-1 hover:bg-indigo-600 hover:border-white-500'><Link to="/login">Login</Link></button>
-					<button className='p-3 bg-white border rounded-md hover:bg-indigo-100 hover:border-1 hover:bg-indigo-600 hover:border-white-500'><Link to="/register">Register</Link></button>
+					<button className='p-3 bg-white border rounded-md hover:bg-indigo-100 hover:border-2 hover:bg-indigo-600 hover:border-white-500'><Link to="/login">Login</Link></button>
+					<button className='p-3 bg-white border rounded-md hover:bg-indigo-100 hover:border-2 hover:bg-indigo-600 hover:border-white-500'><Link to="/register">Register</Link></button>
 				</div>
 			</div>
 		</div>
